@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+.carousel-inner>.carousel {
+    -webkit-transition: 0s !important;
+    -o-transition: 0s !important;
+    transition: 0s !important;
+}
+
+.carousel-item-next.carousel-item-left{
+    display: block !important;
+}
+.carousel-item {
+    overflow-x: hidden;
+}
+// .carousel-item{
+//     float:none !important; 
+//     transition: 0s !important;
+//     height: 300px !important;
+//     width: 1050px !important;
+//     margin-left: 235px !important;
+//     z-index: 10 !important;
+// }
+
+.carousel-control-prev{
+    background-color: #bcbaba !important;
+}
+
+.carousel-control-next{
+    background-color: #bcbaba !important;
+}
+
+.signups{
+    text-decoration: none !important;
+}

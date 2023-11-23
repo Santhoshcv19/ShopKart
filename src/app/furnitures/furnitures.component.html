@@ -1,0 +1,167 @@
+<div class="shop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/shop">
+                <img src="../../assets/images/shopk-removebg-preview.png"  class="me-2" height="50" loading="lazy">
+                <small>ShopKart</small>
+            </a>
+        </div>
+        <div class="searchbar row">
+            <form class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" id="search" type="search" placeholder="Enter the Product you are looking for..." aria-label="Search" size="63" (keydown)="onSearchKeyDown($event)">
+                </div>
+            </form>
+        </div>
+        <div class="s">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#abouts">
+                        <h6>About</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#footer">
+                        <h6>Contact</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item>Orders</button>
+                        <button mat-menu-item class="logsout" (click)="toggleloginform()">Logout</button>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="!isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <a href="/login" class="signups"><button mat-menu-item>Signup</button></a>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="/shop">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="sidebar" id="sidebar">
+        <a (click)="toggleelecform()">Electronics & Devices</a>
+        <a (click)="togglehomeform()">Home Appliances</a>
+        <a (click)="togglefurform()">Furnitures</a>
+        <a (click)="toggledecform()">Clothes</a>
+        <a class="log" (click)="confirmDialog()" id="log">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+    </div> -->
+    <div class="products">
+        <div class="gret" id="user-greeting" [hidden]="!isHelloVisible">
+            <h5 class="user1">Profile</h5>
+            <h5 class="orders">Orders</h5>
+        </div>
+        <!-- <h1>&nbsp;</h1> -->
+        <div class="list">
+            <div class="poco" (click)="selectProduct(furnitureProducts[0])">
+                <img src="../../assets/images/furproduct1.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Taskwood</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;Offer Price: ₹29,999</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹79,999</s></h6>
+                </div>
+            </div>
+            <div class="legion" (click)="selectProduct(furnitureProducts[1])">
+                <img src="../../assets/images/furproduct4.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Shira</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹679</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.7/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,899</s></h6>
+                </div>
+            </div>
+            <div class="fireboltt" (click)="selectProduct(furnitureProducts[2])">
+                <img src="../../assets/images/furproduct2.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Trevi</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹17,349</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.8/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹39,990</s></h6>
+                </div>
+            </div>
+            <div class="Headphones" (click)="selectProduct(furnitureProducts[3])">
+                <img src="../../assets/images/furproduct3.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Wakefit</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹10,294</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.5/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹15,692</s></h6>
+                </div>
+            </div>
+            <div class="Echo" (click)="selectProduct(furnitureProducts[4])">
+                <img src="../../assets/images/furproduct5.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>LifeStyle</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹25,250</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹40,000</s></h6>
+                </div>
+            </div>
+            <div class="Mac" (click)="selectProduct(furnitureProducts[5])">
+                <img src="../../assets/images/furproduct6.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Continental</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;Offer Price:₹1,199</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.8/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹2,499</s></h6>
+                </div>
+            </div>
+            <div class="iphone" (click)="selectProduct(furnitureProducts[6])">
+                <img src="../../assets/images/furproduct7.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Sona Art</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹16,999</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.4/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹25,000</s></h6>
+                </div>
+            </div>
+            <div class="ps5" (click)="selectProduct(furnitureProducts[7])">
+                <img src="../../assets/images/furproduct8.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>KAIZONE</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹399</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,999</s></h6>
+                </div>
+            </div>
+            <div class="xbox" (click)="selectProduct(furnitureProducts[8])">
+                <img src="../../assets/images/reom.png" class="card-img">
+                <div class="container cc">
+                    <h6><b>Reom</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹343</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.7/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹599</s></h6>
+                </div>
+            </div>
+            <div class="airpods" (click)="selectProduct(furnitureProducts[9])">
+                <img src="../../assets/images/furproduct10.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Timber</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹18,999</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹42,500</s></h6>
+                </div>
+            </div>
+            <div class="applewatch" (click)="selectProduct(furnitureProducts[10])">
+                <img src="../../assets/images/furproduct11.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Crempire</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹329</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.7/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹995</s></h6>
+                </div>
+            </div>
+            <div class="neckband" (click)="selectProduct(furnitureProducts[11])">
+                <img src="../../assets/images/furproduct12.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>UrbanWood</b></h6>
+                    <h6 class="price">Offer Price:₹13,299</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>5/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹29,999</s></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

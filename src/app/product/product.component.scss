@@ -1,0 +1,305 @@
+.product-image {
+    margin-left: 26px;
+    width: 362px;
+    height: 342px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.s {
+    margin-right: 40px;
+}
+
+.nav-item {
+    padding: 10px;
+}
+
+.fas {
+    font-size: larger;
+}
+
+.user {
+    cursor: pointer;
+}
+
+.searchbar {
+    margin-right: 112px;
+}
+
+.form-control {
+    border-left: none;
+}
+
+.form-inline {
+    margin-right: 480px;
+}
+
+.products {
+    text-align: center;
+    margin-top: 60px;
+    margin-left: -80px;
+}
+
+.gret {
+    background-color: #28a745;
+    position: absolute;
+    width: 86px;
+    top: 79px;
+    right: 83px;
+    z-index: 10;
+    text-align: center;
+}
+
+.user1,
+.orders {
+    cursor: pointer;
+}
+
+.user1:hover,
+.orders:hover {
+    background-color: rgb(51, 217, 21);
+}
+
+.main {
+    margin-top: 88px;
+    height: 1200px;
+}
+
+.title {
+    position: relative;
+    margin-left: 600px;
+}
+
+// .price{
+//     margin-left: 497px;
+//     position: relative;
+//     bottom: 342px;
+// }
+
+// .review{
+//     margin-left: 497px;
+//     position: relative;
+//     bottom: 342px;
+// }
+
+.mrp {
+    margin-left: 84px;
+    position: relative;
+}
+
+// .Detail{
+//     margin-left: 495px;
+//     position: relative;
+//     bottom: 322px;
+// }
+
+.buttons {
+    font-size: 25px;
+    margin-left: 80px;
+    position: relative;
+    bottom: 520px;
+}
+
+.cart {
+    background-color: yellow;
+    border-color: yellow;
+    border-radius: 5px;
+}
+
+.buy {
+    background-color: orange;
+    border-color: orange;
+    border-radius: 5px;
+}
+
+.cart:hover {
+    background-color: rgb(214, 214, 19);
+    border-color: rgb(214, 214, 19);
+}
+
+.buy:hover {
+    background-color: rgb(215, 146, 18);
+    border-color: rgb(215, 146, 18);
+}
+
+// .specs{
+//     margin-left: 1100px;
+//     position: relative;
+//     bottom: 600px;
+// }
+
+.imgcaro {
+    width: 525px;
+    height: 450px !important;
+}
+
+.wrapper {
+    width: 400px !important;
+    float: left !important;
+    position: relative !important;
+    margin-right: 300px !important;
+    height: 400px !important;
+    text-align: center !important;
+    display: flex !important;
+    cursor: pointer !important;
+}
+
+// .top{
+//     width: 200px;
+// }
+
+.carousel-inner {
+    width: 400px !important;
+    height: 400px !important;
+
+}
+
+.imgs {
+    max-height: 397px;
+    display: block;
+    margin: auto;
+    justify-content: center;
+    max-width: 50%;
+}
+
+
+:host ::ng-deep .carousel-item {
+    float: none !important;
+    transition: 0s !important;
+    margin-top: 30px;
+    height: 400px !important;
+    width: 300px !important;
+    margin-left: 60px !important;
+    z-index: 10 !important;
+}
+
+.carousel-inner>.carousel {
+    -webkit-transition: 0s !important;
+    -o-transition: 0s !important;
+    transition: 0s !important;
+}
+
+.carousel-item-next.carousel-item-left {
+    display: block !important;
+}
+
+.carousel-item {
+    overflow-x: hidden;
+}
+
+.details {
+    position: relative;
+    margin-left: 596px;
+    bottom: 450px;
+}
+
+:host ::ng-deep .carousel-control-prev {
+    background-color: white !important;
+}
+
+:host ::ng-deep .carousel-control-next {
+    background-color: white !important;
+}
+
+:host ::ng-deep .carousel-control-prev-icon {
+    background-color: black;
+}
+
+:host ::ng-deep .carousel-control-next-icon {
+    background-color: black;
+}
+
+.discounts {
+    background-color: #CC0C39;
+    border: #CC0C39;
+    color: white;
+    border-radius: 4px;
+}
+
+.otherspecs {
+    padding-left: 75px;
+    bottom: 460px;
+    position: relative;
+}
+
+.spec1,
+.spec2,
+.spec3,
+.spec4,
+.spec5 {
+    width: 280px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.features {
+    position: relative;
+    bottom: 464px;
+    width: 100%;
+}
+
+.col1,
+.col2,
+.col3,
+.col4,
+.col5 {
+    width: 280px;
+}
+
+
+.image-zoom-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-zoom-content {
+    text-align: center;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.image-zoom-content img {
+    max-width: 90%;
+    max-height: 90%;
+    cursor: pointer;
+}
+
+.image-zoom-container.active {
+    display: flex;
+}
+
+.space{
+    position: relative;
+    bottom: 1230%;
+}
+
+html, body{ 
+    margin: 0; 
+} 
+
+.logsout{
+    background-color: red;
+    color: white;
+}
+
+.logsout:hover{
+    color: black;
+}

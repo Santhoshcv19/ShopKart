@@ -1,0 +1,293 @@
+<div class="shop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/shop">
+                <img src="../../assets/images/shopk-removebg-preview.png" class="me-2" height="50" loading="lazy">
+                <small>ShopKart</small>
+            </a>
+        </div>
+        <div class="searchbar row">
+            <form class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" id="search" type="search"
+                        placeholder="Enter the Product you are looking for..." aria-label="Search" size="63"
+                        (keydown)="onSearchKeyDown($event)">
+                </div>
+            </form>
+        </div>
+        <div class="s">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user abouti" id="user-icon" href="/shop#abouts">
+                        <h6>About</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#footer">
+                        <h6>Contact</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item>Orders</button>
+                        <button mat-menu-item class="logsout" (click)="toggleloginform()">Logout</button>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="!isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <a href="/login" class="signups"><button mat-menu-item>Signup</button></a>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="/shop">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="sidebar" id="sidebar">
+        <a (click)="toggleelecform()">Electronics & Devices</a>
+        <a (click)="togglehomeform()">Home Appliances</a>
+        <a (click)="togglefurform()">Furnitures</a>
+        <a (click)="toggledecform()">Clothes</a>
+        <a class="log" (click)="confirmDialog()" id="log">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+    </div> -->
+    <div class="main" *ngIf="ismain1">
+        <div class="categories row no-gutters">
+            <div class="electronicss" (click)="toggleelecform()">
+                <img src="../../assets/images/cateelec.png" id="categories">
+                <div class="caption">
+                    Electronics & Devices
+                </div>
+            </div>
+            <div class="furnitures" (click)="togglefurform()">
+                <img src="../../assets/images/urbanwood.png" class="urban">
+                <div class="caption">
+                    Furnitures
+                </div>
+            </div>
+            <div class="homeapps" (click)="togglehomeform()">
+                <img src="../../assets/images/homeproduct1.webp" class="fridge">
+                <div class="caption">
+                    Home Appliances
+                </div>
+            </div>
+            <div class="clothes" (click)="toggledecform()">
+                <img src="../../assets/images/cateclothes.png">
+                <div class="caption">
+                    Clothes
+                </div>
+            </div>
+        </div>
+        <!-- <div class="imagescroll">
+            <div class="pull-left mt-sm">
+                <i class="fa-solid fa-arrow-left" (click)="scrollLeft()"></i>
+            </div>
+
+            <div #widgetsContent class="custom-slider-main">
+                <div class="info-box-div">
+                    <img src="../../assets/images/elecmain.jpg" class="info-box">
+                </div>
+                <div class="info-box-div">
+                    <img src="../../assets/images/elecmain2.jpg" class="info-box">
+                </div>
+                <div class="info-box-div">
+                    <img src="../../assets/images/furmain.jpg" class="info-box">
+                </div>
+                <div class="info-box-div">
+                    <img src="../../assets/images/poco.jpg" class="info-box">
+                </div>
+                <div class="info-box-div">
+                    <img src="../../assets/images/clothes.jpg" class="info-box">
+                </div>
+                <div class="info-box-div">
+                    <img src="../../assets/images/furnitures.jpg" class="info-box">
+                </div>
+            </div>
+            <div class="pull-right mt-sm">
+                <i class="fa-solid fa-arrow-right" (click)="scrollRight()"></i>
+            </div>
+        </div> -->
+        <div class="gret" id="user-greeting" [hidden]="!isHelloVisible">
+            <h5 class="user1">Profile</h5>
+            <h5 class="orders">Orders</h5>
+        </div>
+        <ngb-carousel *ngIf="images" class="imgcaro">
+            <ng-template ngbSlide>
+                <div class="wrapper">
+                    <img [src]="images[0]" alt="Random first slide" (click)="toggleelecform()" class="imgs">
+                </div>
+                <div class="carousel-caption">
+                    <h3>Electronics & Devices</h3>
+                    <p> Discounts upto 70% OFF</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="wrapper">
+                    <img [src]="images[3]" alt="Random second slide" (click)="togglefurform()" class="imgs">
+                </div>
+                <div class="carousel-caption">
+                    <h3>Furnitures</h3>
+                    <p>Get 30% Cashbacks on selected furnitures</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="wrapper">
+                    <img [src]="images[2]" alt="Random third slide" (click)="togglehomeform()" class="imgs">
+                </div>
+                <div class="carousel-caption carocap">
+                    <h3>Home Appliances</h3>
+                    <p>Starting from ₹999</p>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="wrapper">
+                    <img [src]="images[1]" alt="Random fourth slide" (click)="toggledecform()" class="imgs">
+                </div>
+                <div class="carousel-caption">
+                    <h3>Clothes</h3>
+                    <p>Buy 1 Get 1 Free</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+        <!-- <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../assets/images/elecmain.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/elecmain2.jpg" alt="Chicago" class="d-block" style="width:100%">
+              </div>
+              <div class="carousel-item">
+                <img src="../../assets/images/furmain.jpg" alt="New York" class="d-block" style="width:100%">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div> -->
+    </div>
+    <div class="main1" id="main1" *ngIf="ismain1">
+        <!-- <div class="cards">
+            <div class="card-electronics" (click)="toggleelecform()">
+                <img src="../../assets/images/electronics.jpg" class="card-img">
+                <div class="container cc">
+                    <h4><b>Electronics & Devices</b></h4>
+                </div>
+            </div>
+            <div class="card-homeapp" (click)="togglehomeform()">
+                <img src="../../assets/images/homeapp.jpg" class="card-img">
+                <div class="container cc">
+                    <h4><b>Home Appliances</b></h4>
+                </div>
+            </div>
+            <div class="card-furnitures" (click)="togglefurform()">
+                <img src="../../assets/images/furnitures.jpg" class="card-img">
+                <div class="container cc">
+                    <h4><b>Furnitures</b></h4>
+                </div>
+            </div>
+            <div class="card-clothes" (click)="toggledecform()">
+                <img src="../../assets/images/clothes.jpg" class="card-img">
+                <div class="container cc">
+                    <h4><b>Clothes</b></h4>
+                </div>
+            </div>
+            <h1 class="space">&nbsp;</h1>
+        </div> -->
+        <div class="offers row no-gutters">
+            <div class="offerphone" (click)="toggleelecform()">
+                <img src="../../assets/images/offerphone.jfif">
+                <div class="conntainer offerphonec">
+                    <h4>Mobiles Upto 70%</h4>
+                    <h4>OFF</h4>
+                </div>
+            </div>
+            <div class="offerfur" (click)="togglefurform()">
+                <img src="../../assets/images/offerfur.jpg">
+                <div class="container offerphonec">
+                    <h4>Cashbacks Upto 30%</h4>
+                </div>
+            </div>
+            <div class="offercloth" (click)="toggledecform()">
+                <img src="../../assets/images/offercloth.jpg">
+                <div class="container offerphonec">
+                    <h4>Buy 1 Get 1 Free</h4>
+                </div>
+            </div>
+            <div class="offerhomeapp" (click)="togglehomeform()">
+                <img src="../../assets/images/offerhomeapp.jpg">
+                <div class="container offerphonec">
+                    <h4>Appliances from ₹999</h4>
+                </div>
+            </div>
+            <!-- <div class="offerphone" (click)="toggleelecform()">
+                <img src="../../assets/images/offerphone.jfif">
+                <div class="container">
+                    <h4>Mobiles Upto 70% OFF</h4>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div *ngIf="isnone1" class="none">
+        <h1>No Products found</h1>
+    </div>
+    <div class="abouts" id="abouts">
+        <p><b>About our products:</b></p>
+        <p><b>Electronics & Devices:</b>
+            <br>This website contains an Electronics & Devices section of our e-commerce platform, where innovation meets convenience. Here, you'll find a treasure trove of cutting-edge gadgets, from the latest smartphones to state-of-the-art laptops and a variety of smart home devices. Stay ahead of the technology curve with our carefully curated selection of products designed to enhance your digital lifestyle.
+            <br>
+            <br><b>Furnitures:</b>
+            <br>Transform your living spaces into your dream haven with our Furnitures collection. We offer a diverse range of stylish and functional furniture pieces that cater to different tastes and needs. Whether you're looking for sleek and modern designs or classic and timeless options, our selection has something for every room in your home. Create the perfect ambiance and bring your interior design vision to life with our exquisite furniture range.
+            <br>
+            <br><b>Home Appliances:</b>
+            <br>Discover the world of convenience in our Home Appliances category. We understand the value of time and effort in your daily routines. That's why we've handpicked a range of high-quality home appliances designed to make your life easier and more efficient. From kitchen essentials to laundry solutions, our selection of appliances will help you streamline your household tasks and upgrade your living standards.
+            <br>
+            <br><b>Clothing Products:</b>
+            <br>For the fashion-forward individuals, our Clothing Products category is a fashion paradise. Dive into a world of style and self-expression, where you'll find the latest trends, timeless classics, and a vast array of clothing and accessories to suit every occasion. Explore our diverse collection to keep your wardrobe fresh and up-to-date, all while expressing your unique sense of style.
+            <br>
+            <br>We are committed to providing you with top-notch products in each of these categories, ensuring that you have access to the best options for your needs. Shop with confidence, knowing that you'll find quality and style in every corner of our e-commerce platform.</p>
+            <!-- <div>
+                <ul>
+                    <li *ngFor="let item of message">
+                      <p>Username: {{ item.username }}</p>
+                      <p>Password: {{ item.password }}</p>
+                    </li>
+                  </ul>
+            </div> -->
+    </div>
+    <div>
+        <footer class="footer" id="footer">
+            <a href="https://www.instagram.com/santhoshcv7/" target="_blank"><img src="../../assets/images/insta.png" class="insta"></a>
+            <a href="https://www.linkedin.com/in/santhosh-cv-91868527a/" target="_blank"><img src="../../assets/images/linkedin.png" class="linkedin"></a>
+            <a href="https://twitter.com/SanthoshCV4" target="_blank"><img src="../../assets/images/twitter.jpg" class="twitter"></a>
+            <!-- <div class="terms row no-gutters">
+                <p><a href="https://drive.google.com/file/d/18CaT9i9iDhwORI73sUtmvvnehlPxAV8-/view?usp=sharing" target="_blank" class="term1">Terms of Use</a> &nbsp; <a href="https://drive.google.com/file/d/1b_s9yTNwF9aWsXfSi59GJbo0iN7_r1VQ/view?usp=sharing" target="_blank" class="term1">Privacy Policy</a></p>
+            </div>
+            <p class="copy">© 2004-2023</p>
+            <a href="/shop"><img src="../../assets/images/shopk-removebg-preview.png" class="shopk"></a> -->
+            <div class="terms row no-gutters">
+                <p><a href="../../assets/files/sample-terms-conditions-agreement.pdf" download>Terms of Use</a> &nbsp; <a href="../../assets/files/sample-privacy-policy-template.pdf" download>Privacy Policy</a></p>
+            </div>
+            <p class="copy">© 2004-2023</p>
+            <a href="/shop#categories"><img src="../../assets/images/shopk-removebg-preview.png" class="shopk"></a>
+        </footer>
+    </div>
+</div>

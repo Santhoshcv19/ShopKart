@@ -1,0 +1,167 @@
+<div class="shop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/shop">
+                <img src="../../assets/images/shopk-removebg-preview.png"  class="me-2" height="50" loading="lazy">
+                <small>ShopKart</small>
+            </a>
+        </div>
+        <div class="searchbar row">
+            <form class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" id="search" type="search" placeholder="Enter the Product you are looking for..." aria-label="Search" size="63" (keydown)="onSearchKeyDown($event)">
+                </div>
+            </form>
+        </div>
+        <div class="s">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#abouts">
+                        <h6>About</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#footer">
+                        <h6>Contact</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item>Orders</button>
+                        <button mat-menu-item class="logsout" (click)="toggleloginform()">Logout</button>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="!isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <a href="/login" class="signups"><button mat-menu-item>Signup</button></a>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="/shop">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="sidebar" id="sidebar">
+        <a (click)="toggleelecform()">Electronics & Devices</a>
+        <a (click)="togglehomeform()">Home Appliances</a>
+        <a (click)="togglefurform()">Furnitures</a>
+        <a (click)="toggledecform()">Clothes</a>
+        <a class="log" (click)="confirmDialog()" id="log">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+    </div> -->
+    <div class="products">
+        <div class="gret" id="user-greeting" [hidden]="!isHelloVisible">
+            <h5 class="user1">Profile</h5>
+            <h5 class="orders">Orders</h5>
+        </div>
+        <!-- <h1>&nbsp;</h1> -->
+        <div class="list">
+            <div class="poco" (click)="selectProduct(homeProducts[0])">
+                <img src="../../assets/images/homeproduct1.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Panasonic</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;Offer Price: ₹32,990</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.2/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹43,000</s></h6>
+                </div>
+            </div>
+            <div class="legion" (click)="selectProduct(homeProducts[1])">
+                <img src="../../assets/images/homeproduct2.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Voltas</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹39,490</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹75,990</s></h6>
+                </div>
+            </div>
+            <div class="fireboltt" (click)="selectProduct(homeProducts[2])">
+                <img src="../../assets/images/homeproduct3.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Crompton</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹5,299</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹9,200</s></h6>
+                </div>
+            </div>
+            <div class="Headphones" (click)="selectProduct(homeProducts[3])">
+                <img src="../../assets/images/homeproduct4.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Skyland</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹3,989</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹14,500</s></h6>
+                </div>
+            </div>
+            <div class="Echo" (click)="selectProduct(homeProducts[4])">
+                <img src="../../assets/images/homeproduct5.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Agaro</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹5,999</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹9,999</s></h6>
+                </div>
+            </div>
+            <div class="Mac" (click)="selectProduct(homeProducts[5])">
+                <img src="../../assets/images/homeproduct6.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Kent</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹1,629</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.8/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹2,000</s></h6>
+                </div>
+            </div>
+            <div class="iphone" (click)="selectProduct(homeProducts[6])">
+                <img src="../../assets/images/homeproduct7.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Faber</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹4,749</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹17,990</s></h6>
+                </div>
+            </div>
+            <div class="ps5" (click)="selectProduct(homeProducts[7])">
+                <img src="../../assets/images/homeproduct8.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Inalsa</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹3,195</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹11,895</s></h6>
+                </div>
+            </div>
+            <div class="xbox" (click)="selectProduct(homeProducts[8])">
+                <img src="../../assets/images/homeproduct9.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Lifelong</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹1,198</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹3,500</s></h6>
+                </div>
+            </div>
+            <div class="airpods" (click)="selectProduct(homeProducts[9])">
+                <img src="../../assets/images/homeproduct10.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Agaro</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹5,999</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹11,495</s></h6>
+                </div>
+            </div>
+            <div class="applewatch" (click)="selectProduct(homeProducts[10])">
+                <img src="../../assets/images/homeproduct11.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Bajaj</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹599</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,400</s></h6>
+                </div>
+            </div>
+            <div class="neckband" (click)="selectProduct(homeProducts[11])">
+                <img src="../../assets/images/homeproduct12.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Pigeon</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹544</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,245</s></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

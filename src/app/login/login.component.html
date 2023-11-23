@@ -1,0 +1,94 @@
+<div class="login" *ngIf="isLogin">
+    <div class="box">
+        <div class="abt">
+            <br>
+            <br><br>
+            <br>
+            <img src="assets/images/shopkar.png">
+            <br>
+            <br>
+            <h3>A place to shop virtually</h3>
+            <br><br><br><br><br>
+        </div>
+        <div class="form">
+            <form method="post" (submit)="login()">
+                <br>
+                <br>
+                <i class='fas fa-user-alt'></i>
+                <br>
+                <br>
+                <br>
+                <input class="infield" type="text" name="username" [(ngModel)]="username" required id="username"
+                    placeholder="Username">
+                <br>
+                <br>
+                <input class="infield" [type]="changetype?'password':'text'" id="password" name="password"
+                    [(ngModel)]="password" required placeholder="Password">
+                <span class="eyeicon" (click)="viewpass()"><i
+                        [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                <br>
+                <br>
+                <a (click)="display()" class="anchor">Forgot Password?</a>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary" (click)="check()">Login</button>
+                <br>
+                <br>
+                <h6>New to ShopKart? <a (click)="toggleForm()" class="create">Create account</a></h6>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="signup" *ngIf="!isLogin">
+    <div class="box">
+        <div class="abt">
+            <br>
+            <br><br>
+            <br>
+            <img src="assets/images/shopkar.png">
+            <br>
+            <br>
+            <h3>A place to shop virtually</h3>
+            <br><br><br><br><br>
+        </div>
+        <div class="form">
+            <form method="post" (submit)="login()">
+                <br>
+                <br>
+                <i class='fas fa-user-alt'></i>
+                <br>
+                <br>
+                <br>
+                <input class="infield" type="text" name="username" [(ngModel)]="username" required id="username"
+                    placeholder="Username">
+                <br>
+                <br>
+                <input class="infield" [type]="changetype?'password':'text'" id="password" name="password"
+                    [(ngModel)]="password" required placeholder="Password">
+                <span class="eyeicon" (click)="viewpass()"><i
+                        [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                <br>
+                <br>
+                <input class="infield" [type]="changetype2?'password':'text'" id="password2" name="password2"
+                    [(ngModel)]="password2" required placeholder="Confirm Password">
+                <span class="eyeicon2" (click)="viewpass2()"><i
+                        [ngClass]="visible2?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary" (click)="add()">Signup</button>
+                <br>
+                <br>
+                <h6>Already have an account? <a (click)="toggleForm()" class="create">Login</a></h6>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>

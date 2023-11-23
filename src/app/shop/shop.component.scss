@@ -1,0 +1,485 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.s {
+    margin-right:40px;
+}
+
+.nav-item{
+    padding: 10px;
+}
+
+.fas {
+    font-size: larger;
+}
+
+.user{
+    cursor: pointer;
+}
+
+.categories{
+    padding: 0px;
+    margin-top: 90px;
+    margin-left: 118px;
+}
+
+.electronicss, .furnitures, .homeapps, .clothes{
+    position: relative;
+    margin-left: 600px;
+    width: 300px;
+    margin: 0 10px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    background-color: transparent;
+}
+
+.electronicss img, .furnitures img, .homeapps img, .clothes img{
+    width: 150px;
+    height: 120px;
+    background-color: transparent;
+}
+
+.sidebar {
+    margin-top: 78px;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.log{
+    margin-top: 383px;
+    cursor: pointer;
+}
+
+.fa-solid{
+    margin-left: 5px;
+}
+
+.gret{
+    background-color: #28a745;
+    position: absolute;
+    width: 86px;
+    top: 79px;
+    right: 83px;
+    z-index: 100;
+    text-align: center;
+}
+
+.searchbar{
+    width: 1200px;
+    margin-right: 120px;
+}
+
+
+.imagescroll{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 150px;
+    height: 50vh; 
+    margin-left: 0px;
+}
+
+.pull-left, .pull-right{
+    cursor: pointer;
+}
+
+.festiv-main{
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 0px;
+}
+
+.festiv-main h1 {
+    margin-bottom: 20px;
+}
+
+.festiv-main .main-anchor {
+    display: block; 
+    text-decoration: none;
+}
+
+.main-anchor{
+    width: 120px;
+    margin-left: 100px;
+}
+
+
+.main1{
+    height: auto; 
+    margin-left: -90px;
+}
+
+.cards{
+    padding: 20px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-electronics{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    position: relative;
+    top: 200%;
+    left: 15%;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.card-electronics:hover{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.card-img{
+    width: 100%;
+    height: 300px;
+}
+
+.cc{
+    padding: 2px 16px;
+    background-color: #ccc5c5;
+    color: #383535;
+    
+}
+
+.cc b{
+    font-size: larger;
+}
+
+.card-homeapp{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    position: relative;
+    top: 200%;
+    left: 15%;
+    cursor: pointer;
+}
+
+.card-homeapp:hover{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.card-furnitures{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    position: relative;
+    bottom: 603px;
+    left: 63%;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.card-furnitures:hover{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.card-clothes{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    position: relative;
+    bottom: 603px;
+    left: 63%;
+    cursor: pointer;
+}
+
+.card-clothes:hover{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.product-electronic h1, .product-homeapp h1, .product-furnitures h1, .product-clothes h1{
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.product-none h1{
+    text-align: center;
+    margin-top: 300px;
+    margin-left: 100px;
+}
+
+.input-group-text {
+    background: white;
+    border: none;
+}
+
+.form-control {
+    border-left: none;
+}
+
+.form-inline{
+    margin-right: 480px;
+}
+
+.user1, .orders{
+    cursor: pointer;
+}
+
+.user1:hover, .orders:hover{
+    background-color: rgb(51, 217, 21);
+}
+
+.btn{
+    background-color: blue;
+    border-radius: 10px;
+    color: white;
+    border-color: blue;
+}
+
+.btn:hover{
+    color: blue;
+    background-color: white;
+}
+
+.popup{
+    margin-top: 218px;
+    text-decoration: none;
+}
+
+.space{
+    position: relative;
+    bottom: 1230%;
+}
+
+.custom-slider-main{
+    display: flex;
+    overflow: hidden; 
+}
+
+.info-box{
+    padding: 30px;
+    width: 800px;
+    height: 350px;
+}
+
+.wrapper{
+    width: 100%;
+    height: 300px;
+}
+
+.wrapper img{
+    height: 100%;
+    width: 100%;
+}
+
+.imgcaro{
+    margin-top: 20px;
+    transition: transform 0.2s ease !important;
+    background-color: #bcbaba !important;
+}
+
+.imgs{
+    cursor: pointer;
+}
+
+.carousel-inner{
+    overflow: visible !important;
+}
+
+.offers{
+    padding: 20px;
+}
+
+.offerphone img{
+    margin-left: -12px;
+    width: 250px;
+    height: 234px;
+}
+
+.offerphone{
+    margin-left: 140px;
+    cursor: pointer;
+    background-color: rgb(230, 225, 225);
+    width: 250px;
+}
+
+.offerphonec{
+    text-align: center;
+}
+
+.offerfur img{
+    margin-left: -12px;
+    width: 250px;
+    height: 234px;
+}
+
+.offerfur{
+    margin-left: 120px;
+    cursor: pointer;
+    background-color: rgb(230, 225, 225);
+    width: 250px;
+}
+
+.offercloth img{
+    margin-left: -12px;
+    width: 250px;
+    height: 234px;
+}
+
+.offercloth{
+    margin-left: 120px;
+    cursor: pointer;
+    background-color: rgb(230, 225, 225);
+    width: 250px;
+}
+
+.offerhomeapp img{
+    margin-left: -12px;
+    width: 250px;
+    height: 234px;
+}
+
+.offerhomeapp{
+    margin-left: 120px;
+    cursor: pointer;
+    background-color: rgb(230, 225, 225);
+    width: 250px;
+}
+
+.carousel-inner>.carousel {
+    -webkit-transition: 0s !important;
+    -o-transition: 0s !important;
+    transition: 0s !important;
+}
+
+.carousel-item-next.carousel-item-left{
+    display: block !important;
+}
+.carousel-item {
+    overflow-x: hidden;
+}
+:host ::ng-deep .carousel-item{
+    float:none !important; 
+    transition: 0s !important;
+    height: 300px !important;
+    width: 1050px !important;
+    margin-left: 235px !important;
+    z-index: 10 !important;
+}
+
+.carousel-control-prev{
+    background-color: #bcbaba !important;
+}
+
+.carousel-control-next{
+    background-color: #bcbaba !important;
+}
+
+.carousel-caption{
+    color: white;
+    bottom: 180px !important;
+}
+
+.urban{
+    width: 200px !important;
+}
+
+.fridge{
+    width: 60px !important;
+}
+
+.none{
+    position: relative;
+    top: 100px;
+    left: 38%;
+}
+
+.abouts{
+    padding: 30px 25px 25px 25px;
+}
+
+.footer{
+    height: 200px;
+    background-color: black;
+}
+
+.linkedin{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 45%;
+    top: 20%;
+}
+
+.twitter{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 47%;
+    top: 20%;
+}
+
+.insta{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    left: 43%;
+    top: 20%;
+}
+
+.terms{
+    color: white;
+    margin-left: 633px;
+    position: relative;
+    top: 65px;
+}
+
+.terms a{
+    text-decoration: none !important;
+    color: white;
+}
+
+.copy{
+    color: gray;
+    position: relative;
+    top: 65px;
+    margin-left: 688px;
+}
+
+.shopk{
+    margin-left: 1435px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.signups{
+    text-decoration: none;
+}
+
+.logsout{
+    background-color: red;
+    color: white;
+}
+
+.logsout:hover{
+    color: black;
+}

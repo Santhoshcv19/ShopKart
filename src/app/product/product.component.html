@@ -1,0 +1,165 @@
+<div class="shop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/shop">
+                <img src="../../assets/images/shopk-removebg-preview.png" class="me-2" height="50" loading="lazy">
+                <small>ShopKart</small>
+            </a>
+        </div>
+        <div class="searchbar row">
+            <form class="form-inline">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" id="search" type="search"
+                        placeholder="Enter the Product you are looking for..." aria-label="Search" size="63"
+                        (keydown)="onSearchKeyDown($event)">
+                </div>
+            </form>
+        </div>
+        <div class="s">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#abouts">
+                        <h6>About</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link user" id="user-icon" href="/shop#footer">
+                        <h6>Contact</h6>
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item>Orders</button>
+                        <button mat-menu-item class="logsout" (click)="toggleloginform()">Logout</button>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0" *ngIf="!isloginav">
+                    <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <mat-menu #menu="matMenu" id="matMenu">
+                        <a href="/login" class="signups"><button mat-menu-item>Signup</button></a>
+                    </mat-menu>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="/shop">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+    
+<div *ngIf="selectedProduct" class="main">
+    <div class="gret" id="user-greeting" [hidden]="!isHelloVisible">
+        <h5 class="user1">Profile</h5>
+        <h5 class="orders">Orders</h5>
+    </div>
+    <h1 class="title">{{ selectedProduct.title }}</h1>
+    <ngb-carousel class="imgcaro">
+        <!-- <ng-template ngbSlide class="top">
+            <div class="wrapper">
+                <img [src]="selectedProduct.img" alt="Random first slide" class="imgs">
+            </div>
+        </ng-template> -->
+        <ng-template ngbSlide class="top">
+            <div class="wrapper" (click)="handleImageClick()">
+                <img [src]="selectedProduct.img" alt="Random first slide" class="imgs">
+            </div>
+        </ng-template>
+        <ng-template ngbSlide class="top">
+            <div class="wrapper" (click)="handleImage2Click()">
+                <img [src]="selectedProduct.img2" alt="Random second slide" class="imgs" >
+            </div>
+        </ng-template>
+        <ng-template ngbSlide class="top">
+            <div class="wrapper" (click)="handleImage3Click()">
+                <img [src]="selectedProduct.img3" alt="Random third slide" class="imgs">
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    <div class="details">
+        <h6 class="review"><i class="fa fa-star" aria-hidden="true"></i>{{ selectedProduct.ratings }} &nbsp; {{ selectedProduct.reviews }}</h6>
+        <hr>
+        <button class="discounts">% Discount Offer</button>
+        <h3 class="price">Price: ₹{{ selectedProduct.Offerprice }} <h6 class="mrp"><s>₹{{ selectedProduct.MRP }}</s></h6></h3>
+        <!-- <br> -->
+        <hr>
+        <h5 class="Detail" [innerHTML]="selectedProduct.Detail"></h5>
+        <hr>
+        <h3>Specifications</h3>
+        <p [innerHTML]="selectedProduct.Specs"></p>
+    </div>
+    <div class="buttons">
+        <button class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>ADD TO CART</button>&nbsp;&nbsp;&nbsp;
+        <button class="buy"><i class="fas fa-bolt"></i>BUY NOW</button>
+    </div>
+    <!-- <div class="otherspecs row no-gutters">
+        <div class="spec1">
+            <p [innerHTML]="selectedProduct.Specs1"></p>
+        </div>
+        <div class="spec2">
+            <p [innerHTML]="selectedProduct.Specs2"></p>
+        </div>
+        <div class="spec3">
+            <p [innerHTML]="selectedProduct.Specs3"></p>
+        </div>
+        <div class="spec4">
+            <p [innerHTML]="selectedProduct.Specs4"></p>
+        </div>
+        <div class="spec5">
+            <p [innerHTML]="selectedProduct.Specs5"></p>
+        </div>
+    </div> -->
+    <table class="features" *ngIf="selectedProduct.Specs1 || selectedProduct.Specs2 || selectedProduct.Specs3 || selectedProduct.Specs4 || selectedProduct.Specs5">
+        <colgroup>
+            <col span="1" class="col1">
+            <col span="1" class="col2">
+            <col span="1" class="col3">
+            <col span="1" class="col4">
+            <col span="1" class="col5">
+         </colgroup>
+        <tbody>
+            <tr>
+                <th [innerHTML]="selectedProduct.Specs1heading"></th>
+                <th [innerHTML]="selectedProduct.Specs2heading"></th>
+                <th [innerHTML]="selectedProduct.Specs3heading"></th>
+                <th [innerHTML]="selectedProduct.Specs4heading"></th>
+                <th [innerHTML]="selectedProduct.Specs5heading"></th>
+            </tr>
+            <tr>
+                <td [innerHTML]="selectedProduct.Specs1"></td>
+                <td [innerHTML]="selectedProduct.Specs2"></td>
+                <td [innerHTML]="selectedProduct.Specs3"></td>
+                <td [innerHTML]="selectedProduct.Specs4"></td>
+                <td [innerHTML]="selectedProduct.Specs5"></td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <div class="specs">
+        <h3><b>Specifications</b></h3>
+        <p [innerHTML]="selectedProduct.Specs"></p>
+    </div> -->
+</div>
+<div class="image-zoom-container" [ngClass]="{ 'active': isImageZoomActive }" (click)="closeImageZoom()">
+    <div class="image-zoom-content">
+      <img [src]="selectedProduct.img" alt="Zoomed Image">
+    </div>
+</div>
+<div class="image-zoom-container" [ngClass]="{ 'active': isImage2ZoomActive }" (click)="closeImage2Zoom()">
+    <div class="image-zoom-content">
+      <img [src]="selectedProduct.img2" alt="Zoomed Image">
+    </div>
+</div>
+<div class="image-zoom-container" [ngClass]="{ 'active': isImage3ZoomActive }" (click)="closeImage3Zoom()">
+    <div class="image-zoom-content">
+      <img [src]="selectedProduct.img3" alt="Zoomed Image">
+    </div>
+</div>
+
