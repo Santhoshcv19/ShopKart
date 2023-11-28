@@ -65,8 +65,21 @@
             <h5 class="orders">Orders</h5>
         </div>
         <!-- <h1>&nbsp;</h1> -->
-        <div class="list">
-            <div class="poco" (click)="selectProduct(homeProducts[0])">
+        <div class="list row no-gutters">
+            <div class="poco" (click)="selectProduct(product.id)" *ngFor="let product of homeProducts">
+                <img [src]="product.detail_of_product.img" class="card-img">
+                <div class="container">
+                    <div class="left-content">
+                        <h6><b>{{ product.product_name }}</b></h6>
+                        <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>{{ product.detail_of_product.ratings }}</h6>
+                    </div>
+                    <div class="right-content">
+                        <h6 class="offerp">Offer Price: ₹{{product.detail_of_product.Offerprice}}</h6>
+                        <h6>MRP: <s>₹{{product.detail_of_product.MRP}}</s></h6>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="poco" (click)="selectProduct(homeProducts[0])">
                 <img src="../../assets/images/homeproduct1.webp" class="card-img">
                 <div class="container cc">
                     <h6><b>Panasonic</b></h6>
@@ -161,7 +174,7 @@
                     <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹544</h6>
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,245</s></h6>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

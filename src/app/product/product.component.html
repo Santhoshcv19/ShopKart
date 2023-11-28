@@ -61,7 +61,7 @@
         <h5 class="user1">Profile</h5>
         <h5 class="orders">Orders</h5>
     </div>
-    <h1 class="title">{{ selectedProduct.title }}</h1>
+    <h1 class="title">{{ selectedProduct.detail_of_product?.title }}</h1>
     <ngb-carousel class="imgcaro">
         <!-- <ng-template ngbSlide class="top">
             <div class="wrapper">
@@ -70,31 +70,31 @@
         </ng-template> -->
         <ng-template ngbSlide class="top">
             <div class="wrapper" (click)="handleImageClick()">
-                <img [src]="selectedProduct.img" alt="Random first slide" class="imgs">
+                <img [src]="selectedProduct.detail_of_product?.img" alt="Random first slide" class="imgs">
             </div>
         </ng-template>
         <ng-template ngbSlide class="top">
             <div class="wrapper" (click)="handleImage2Click()">
-                <img [src]="selectedProduct.img2" alt="Random second slide" class="imgs" >
+                <img [src]="selectedProduct.detail_of_product?.img2" alt="Random second slide" class="imgs" >
             </div>
         </ng-template>
         <ng-template ngbSlide class="top">
             <div class="wrapper" (click)="handleImage3Click()">
-                <img [src]="selectedProduct.img3" alt="Random third slide" class="imgs">
+                <img [src]="selectedProduct.detail_of_product?.img3" alt="Random third slide" class="imgs">
             </div>
         </ng-template>
     </ngb-carousel>
     <div class="details">
-        <h6 class="review"><i class="fa fa-star" aria-hidden="true"></i>{{ selectedProduct.ratings }} &nbsp; {{ selectedProduct.reviews }}</h6>
+        <h6 class="review"><i class="fa fa-star" aria-hidden="true"></i>{{ selectedProduct.detail_of_product?.ratings }} &nbsp; {{ selectedProduct.detail_of_product.reviews }}</h6>
         <hr>
         <button class="discounts">% Discount Offer</button>
-        <h3 class="price">Price: ₹{{ selectedProduct.Offerprice }} <h6 class="mrp"><s>₹{{ selectedProduct.MRP }}</s></h6></h3>
+        <h3 class="price">Price: ₹{{ selectedProduct.detail_of_product?.Offerprice }} <h6 class="mrp"><s>₹{{ selectedProduct.detail_of_product?.MRP }}</s></h6></h3>
         <!-- <br> -->
         <hr>
-        <h5 class="Detail" [innerHTML]="selectedProduct.Detail"></h5>
+        <h5 class="Detail" [innerHTML]="selectedProduct.detail_of_product?.Detail"></h5>
         <hr>
         <h3>Specifications</h3>
-        <p [innerHTML]="selectedProduct.Specs"></p>
+        <p [innerHTML]="selectedProduct.detail_of_product?.Specs"></p>
     </div>
     <div class="buttons">
         <button class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>ADD TO CART</button>&nbsp;&nbsp;&nbsp;
@@ -117,7 +117,7 @@
             <p [innerHTML]="selectedProduct.Specs5"></p>
         </div>
     </div> -->
-    <table class="features" *ngIf="selectedProduct.Specs1 || selectedProduct.Specs2 || selectedProduct.Specs3 || selectedProduct.Specs4 || selectedProduct.Specs5">
+    <table class="features" *ngIf="selectedProduct.detail_of_product?.Specs1 || selectedProduct.detail_of_product?.Specs2 || selectedProduct.detail_of_product?.Specs3 || selectedProduct.detail_of_product?.Specs4 || selectedProduct.detail_of_product?.Specs5">
         <colgroup>
             <col span="1" class="col1">
             <col span="1" class="col2">
@@ -127,18 +127,18 @@
          </colgroup>
         <tbody>
             <tr>
-                <th [innerHTML]="selectedProduct.Specs1heading"></th>
-                <th [innerHTML]="selectedProduct.Specs2heading"></th>
-                <th [innerHTML]="selectedProduct.Specs3heading"></th>
-                <th [innerHTML]="selectedProduct.Specs4heading"></th>
-                <th [innerHTML]="selectedProduct.Specs5heading"></th>
+                <th [innerHTML]="selectedProduct.detail_of_product?.Specs1heading"></th>
+                <th [innerHTML]="selectedProduct.detail_of_product?.Specs2heading"></th>
+                <th [innerHTML]="selectedProduct.detail_of_product?.Specs3heading"></th>
+                <th [innerHTML]="selectedProduct.detail_of_product?.Specs4heading"></th>
+                <th [innerHTML]="selectedProduct.detail_of_product?.Specs5heading"></th>
             </tr>
             <tr>
-                <td [innerHTML]="selectedProduct.Specs1"></td>
-                <td [innerHTML]="selectedProduct.Specs2"></td>
-                <td [innerHTML]="selectedProduct.Specs3"></td>
-                <td [innerHTML]="selectedProduct.Specs4"></td>
-                <td [innerHTML]="selectedProduct.Specs5"></td>
+                <td [innerHTML]="selectedProduct.detail_of_product?.Specs1"></td>
+                <td [innerHTML]="selectedProduct.detail_of_product?.Specs2"></td>
+                <td [innerHTML]="selectedProduct.detail_of_product?.Specs3"></td>
+                <td [innerHTML]="selectedProduct.detail_of_product?.Specs4"></td>
+                <td [innerHTML]="selectedProduct.detail_of_product?.Specs5"></td>
             </tr>
         </tbody>
     </table>
@@ -149,17 +149,17 @@
 </div>
 <div class="image-zoom-container" [ngClass]="{ 'active': isImageZoomActive }" (click)="closeImageZoom()">
     <div class="image-zoom-content">
-      <img [src]="selectedProduct.img" alt="Zoomed Image">
+      <img [src]="selectedProduct.detail_of_product?.img" alt="Zoomed Image">
     </div>
 </div>
 <div class="image-zoom-container" [ngClass]="{ 'active': isImage2ZoomActive }" (click)="closeImage2Zoom()">
     <div class="image-zoom-content">
-      <img [src]="selectedProduct.img2" alt="Zoomed Image">
+      <img [src]="selectedProduct.detail_of_product?.img2" alt="Zoomed Image">
     </div>
 </div>
 <div class="image-zoom-container" [ngClass]="{ 'active': isImage3ZoomActive }" (click)="closeImage3Zoom()">
     <div class="image-zoom-content">
-      <img [src]="selectedProduct.img3" alt="Zoomed Image">
+      <img [src]="selectedProduct.detail_of_product?.img3" alt="Zoomed Image">
     </div>
 </div>
 

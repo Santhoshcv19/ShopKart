@@ -15,4 +15,10 @@ export class ApiService {
     getProductDetails(productId: number) {
         return this.http.get(`http://localhost:3000/api/products/${productId}`);
     }
+    getallProductDetails() {
+        return this.http.get(`http://localhost:3000/api/products/`);
+    }
+    getcategoryProductDetails(categoryId: number) {
+        return this.http.get(`http://localhost:3000/api/get-product/${categoryId}`);
+    }
 }

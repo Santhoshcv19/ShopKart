@@ -65,8 +65,21 @@
             <h5 class="orders">Orders</h5>
         </div>
         <!-- <h1>&nbsp;</h1> -->
-        <div class="list">
-            <div class="poco" (click)="selectProduct(37)">
+        <div class="list row no-gutters">
+            <div class="poco" (click)="selectProduct(product.id)" *ngFor="let product of clothProducts">
+                <img [src]="product.detail_of_product.img" class="card-img">
+                <div class="container">
+                    <div class="left-content">
+                        <h6><b>{{ product.product_name }}</b></h6>
+                        <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>{{ product.detail_of_product.ratings }}</h6>
+                    </div>
+                    <div class="right-content">
+                        <h6 class="offerp">Offer Price: ₹{{product.detail_of_product.Offerprice}}</h6>
+                        <h6>MRP: <s>₹{{product.detail_of_product.MRP}}</s></h6>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="poco" (click)="selectProduct(37)">
                 <img src="../../assets/images/allen1.png" class="card-img">
                 <div class="container cc">
                     <h6><b>Allen Solly</b></h6>
@@ -74,7 +87,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹14,999</s></h6>
                 </div>
             </div>
-            <!-- <div class="legion" (click)="selectProduct(clothProducts[1])">
+            <div class="legion" (click)="selectProduct(38)">
                 <img src="../../assets/images/urbano1.png" class="card-img">
                 <div class="container cc">
                     <h6><b>Urbano</b></h6>
@@ -82,7 +95,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.4/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹2,599</s></h6>
                 </div>
             </div>
-            <div class="fireboltt" (click)="selectProduct(clothProducts[2])">
+            <div class="fireboltt" (click)="selectProduct(39)">
                 <img src="../../assets/images/vtexx1.png" class="card-img">
                 <div class="container cc">
                     <h6><b>VTexx</b></h6>
@@ -90,7 +103,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,299</s></h6>
                 </div>
             </div>
-            <div class="Headphones" (click)="selectProduct(clothProducts[3])">
+            <div class="Headphones" (click)="selectProduct(40)">
                 <img src="../../assets/images/clothproduct3.webp" class="card-img">
                 <div class="container cc">
                     <h6><b>Blive</b></h6>
@@ -98,7 +111,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,999</s></h6>
                 </div>
             </div>
-            <div class="Echo" (click)="selectProduct(clothProducts[4])">
+            <div class="Echo" (click)="selectProduct(41)">
                 <img src="../../assets/images/clothproduct5.jpg" class="card-img">
                 <div class="container cc">
                     <h6><b>Ezee</b></h6>
@@ -106,7 +119,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹199</s></h6>
                 </div>
             </div>
-            <div class="Mac" (click)="selectProduct(clothProducts[5])">
+            <div class="Mac" (click)="selectProduct(42)">
                 <img src="../../assets/images/clothproduct6.jpg" class="card-img">
                 <div class="container cc">
                     <h6><b>T2F</b></h6>
@@ -114,7 +127,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,800</s></h6>
                 </div>
             </div>
-            <div class="iphone" (click)="selectProduct(clothProducts[6])">
+            <div class="iphone" (click)="selectProduct(43)">
                 <img src="../../assets/images/clothproduct7.jpg" class="card-img">
                 <div class="container cc">
                     <h6><b>Lymio</b></h6>
@@ -122,7 +135,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹499</s></h6>
                 </div>
             </div>
-            <div class="ps5" (click)="selectProduct(clothProducts[7])">
+            <div class="ps5" (click)="selectProduct(44)">
                 <img src="../../assets/images/clothproduct8.webp" class="card-img">
                 <div class="container cc">
                     <h6><b>M7</b></h6>
@@ -130,7 +143,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,599</s></h6>
                 </div>
             </div>
-            <div class="xbox" (click)="selectProduct(clothProducts[8])">
+            <div class="xbox" (click)="selectProduct(45)">
                 <img src="../../assets/images/clothproduct9.webp" class="card-img">
                 <div class="container cc">
                     <h6><b>Tripr</b></h6>
@@ -138,7 +151,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.8/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,999</s></h6>
                 </div>
             </div>
-            <div class="airpods" (click)="selectProduct(clothProducts[9])">
+            <div class="airpods" (click)="selectProduct(46)">
                 <img src="../../assets/images/clothproduct10.jpg" class="card-img">
                 <div class="container cc">
                     <h6><b>Zolario</b></h6>
@@ -146,7 +159,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹799</s></h6>
                 </div>
             </div>
-            <div class="applewatch" (click)="selectProduct(clothProducts[10])">
+            <div class="applewatch" (click)="selectProduct(47)">
                 <img src="../../assets/images/clothproduct11.jpg" class="card-img">
                 <div class="container cc">
                     <h6><b>Zakar</b></h6>
@@ -154,7 +167,7 @@
                     <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.7/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹3,599</s></h6>
                 </div>
             </div>
-            <div class="neckband" (click)="selectProduct(clothProducts[11])">
+            <div class="neckband" (click)="selectProduct(48)">
                 <img src="../../assets/images/clothproduct12.webp" class="card-img">
                 <div class="container cc">
                     <h6><b>Uniq</b></h6>

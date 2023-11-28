@@ -427,6 +427,7 @@
     position: relative;
     left: 45%;
     top: 20%;
+    transition: transform .2s;
 }
 
 .twitter{
@@ -435,6 +436,7 @@
     position: relative;
     left: 47%;
     top: 20%;
+    transition: transform .2s;
 }
 
 .insta{
@@ -443,7 +445,13 @@
     position: relative;
     left: 43%;
     top: 20%;
+    transition: transform .2s;
 }
+
+.insta:hover, .linkedin:hover, .twitter:hover{
+    transform: scale(1.2);
+}
+
 
 .terms{
     color: white;

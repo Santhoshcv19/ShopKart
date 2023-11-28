@@ -95,27 +95,31 @@
     position: relative;
     top: 3%;
     left: 11%;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     cursor: pointer;
+    margin-right: 80px;
+    padding: 0px !important;
 }
+
+// .poco img{
+//     width: 200px;
+// }
 
 .card-img{
-    width: 80%;
-    height: 233px;
-    object-fit: contain;
+    max-width: fit-content;
+    height: 230px;
 }
-
 
 .cc{
     padding: 2px 16px;
     background-color: #ccc5c5;
     color: #383535;
-    height: 80px;
+    height: 107px;
     
 }
 
 .cc b{
-    font-size: larger;
+    font-size: small;
     float: left;
 }
 
@@ -135,6 +139,7 @@
 
 .legion img{
     height: 233px;
+    width: 200px;
 }
 
 .fireboltt{
@@ -142,13 +147,14 @@
     transition: 0.3s;
     width: 18%;
     position: relative;
-    top: -56.8%;
+    bottom: 621px;
     left: 33%;
     cursor: pointer;
 }
 
 .fireboltt img{
-    height: 180px !important;
+    height: 233px;
+    width: 200px;
 }
 
 .Headphones{
@@ -156,17 +162,17 @@
     transition: 0.3s;
     width: 18%;
     position: relative;
-    bottom: 941px;
+    bottom: 934px;
     left: 54%;
     cursor: pointer;
 }
 
 .Headphones img{
-    height: 180px !important;
+    height: 233px;
 }
 
 .list{
-    height: 1100px;
+    height: 1250px;
 }
 
 .Echo{
@@ -209,6 +215,7 @@
 
 .iphone img{
     height: 233px;
+    width: 200px;
 }
 
 .ps5{
@@ -223,6 +230,7 @@
 
 .ps5 img{
     height: 233px;
+    width: 200px;
 }
 
 .xbox{
@@ -237,6 +245,7 @@
 
 .xbox img{
     height: 233px;
+    width: 200px;
 }
 
 .airpods{
@@ -251,6 +260,7 @@
 
 .airpods img{
     height: 233px;
+    width: 200px;
 }
 
 .applewatch{
@@ -265,6 +275,7 @@
 
 .applewatch img{
     height: 233px;
+    width: 200px;
 }
 
 .neckband{
@@ -279,11 +290,7 @@
 
 .neckband img{
     height: 233px;
-}
-
-.product-img{
-    padding-bottom: 40px;
-    padding-top: 16px;
+    width: 200px;
 }
 
 .logsout{
@@ -295,3 +302,25 @@
     color: black;
 }
 
+.offerp{
+    float: right;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ccc5c5;
+    color: #383535;
+    height: 107px;
+}
+
+.left-content {
+    flex: 1;
+    text-align: left;
+}
+
+.right-content {
+    flex: 1;
+    text-align: right;
+}

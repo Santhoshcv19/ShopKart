@@ -65,109 +65,116 @@
             <h5 class="orders">Orders</h5>
         </div>
         <!-- <h1>&nbsp;</h1> -->
-        <div class="list">
-            <div class="poco" (click)="selectProduct(electronicProducts[0])">
-                <div class="imgs">
-                    <img src="../../assets/images/pocoimg1.png" class="card-img">
-                </div>
-                <div class="container cc">
-                    <h6><b>Poco X3</b></h6>
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price: ₹13,999</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹19,999</s></h6>
-                </div>
-            </div>
-            <div class="legion" (click)="selectProduct(electronicProducts[1])">
-                <img src="../../assets/images/legion .png" class="card-img">
-                <div class="container cc">
-                    <h6><b>Lenovo</b></h6>
-                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹62,999</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹72,999</s></h6>
+        <div class="list row no-gutters">
+            <div class="poco" (click)="selectProduct(product.id)" *ngFor="let product of elecProducts">
+                <img [src]="product.detail_of_product.img" class="card-img">
+                <div class="container">
+                    <div class="left-content">
+                        <h6><b>{{ product.product_name }}</b></h6>
+                        <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>{{ product.detail_of_product.ratings }}</h6>
+                    </div>
+                    <div class="right-content">
+                        <h6 class="offerp">Offer Price: ₹{{product.detail_of_product.Offerprice}}</h6>
+                        <h6>MRP: <s>₹{{product.detail_of_product.MRP}}</s></h6>
+                    </div>
                 </div>
             </div>
-            <div class="fireboltt" (click)="selectProduct(electronicProducts[2])">
-                <div class="product-img">
-                    <img src="../../assets/images/fireboltt.jpg" class="card-img fireb">
-                </div>
+            <!-- <div class="poco" (click)="selectProduct(37)">
+                <img src="../../assets/images/allen1.png" class="card-img">
                 <div class="container cc">
-                    <h6><b>Fire-Boltt</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹999</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,197</s></h6>
+                    <h6><b>Allen Solly</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;Offer Price: ₹13,499</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹14,999</s></h6>
                 </div>
             </div>
-            <div class="Headphones" (click)="selectProduct(electronicProducts[3])">
-                <div class="product-img">
-                    <img src="../../assets/images/headphones.png" class="card-img">
-                </div>
+            <div class="legion" (click)="selectProduct(38)">
+                <img src="../../assets/images/urbano1.png" class="card-img">
                 <div class="container cc">
-                    <h6><b>Srhythm</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹3,998</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹8,998</s></h6>
+                    <h6><b>Urbano</b></h6>
+                    <h6>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹787</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.4/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹2,599</s></h6>
                 </div>
             </div>
-            <div class="Echo" (click)="selectProduct(electronicProducts[4])">
-                <img src="../../assets/images/echo.png" class="card-img">
+            <div class="fireboltt" (click)="selectProduct(39)">
+                <img src="../../assets/images/vtexx1.png" class="card-img">
                 <div class="container cc">
-                    <h6><b>Echo Dot</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹3,249</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹5,499</s></h6>
+                    <h6><b>VTexx</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹299</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,299</s></h6>
                 </div>
             </div>
-            <div class="Mac" (click)="selectProduct(electronicProducts[5])">
-                <img src="../../assets/images/mac1.png" class="card-img">
+            <div class="Headphones" (click)="selectProduct(40)">
+                <img src="../../assets/images/clothproduct3.webp" class="card-img">
                 <div class="container cc">
-                    <h6><b>MacBook</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹69,990</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹92,900</s></h6>
+                    <h6><b>Blive</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹399</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,999</s></h6>
                 </div>
             </div>
-            <div class="iphone" (click)="selectProduct(electronicProducts[6])">
-                <img src="../../assets/images/iphone.jpg" class="card-img">
+            <div class="Echo" (click)="selectProduct(41)">
+                <img src="../../assets/images/clothproduct5.jpg" class="card-img">
                 <div class="container cc">
-                    <h6><b>Iphone 13</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹50,499</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.5/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹59,900</s></h6>
+                    <h6><b>Ezee</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹99</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.1/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹199</s></h6>
                 </div>
             </div>
-            <div class="ps5" (click)="selectProduct(electronicProducts[7])">
-                <img src="../../assets/images/ps5.png" class="card-img">
+            <div class="Mac" (click)="selectProduct(42)">
+                <img src="../../assets/images/clothproduct6.jpg" class="card-img">
                 <div class="container cc">
-                    <h6><b>PS5</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹49,390</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹59,390</s></h6>
+                    <h6><b>T2F</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹218</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.9/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,800</s></h6>
                 </div>
             </div>
-            <div class="xbox" (click)="selectProduct(electronicProducts[8])">
-                <img src="../../assets/images/xbox.png" class="card-img">
+            <div class="iphone" (click)="selectProduct(43)">
+                <img src="../../assets/images/clothproduct7.jpg" class="card-img">
                 <div class="container cc">
-                    <h6><b>Xbox X</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹49,199</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹55,990</s></h6>
+                    <h6><b>Lymio</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹329</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.0/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹499</s></h6>
                 </div>
             </div>
-            <div class="airpods" (click)="selectProduct(electronicProducts[9])">
-                <img src="../../assets/images/airpods.png" class="card-img">
+            <div class="ps5" (click)="selectProduct(44)">
+                <img src="../../assets/images/clothproduct8.webp" class="card-img">
                 <div class="container cc">
-                    <h6><b>AirPods</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹18,999</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹26,990</s></h6>
+                    <h6><b>M7</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹329</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,599</s></h6>
                 </div>
             </div>
-            <div class="applewatch" (click)="selectProduct(electronicProducts[10])">
-                <img src="../../assets/images/applewatch.png" class="card-img">
+            <div class="xbox" (click)="selectProduct(45)">
+                <img src="../../assets/images/clothproduct9.webp" class="card-img">
                 <div class="container cc">
-                    <h6><b>Apple</b></h6>
-                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹21,999</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.5/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹29,900</s></h6>
+                    <h6><b>Tripr</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹419</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.8/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹1,999</s></h6>
                 </div>
             </div>
-            <div class="neckband" (click)="selectProduct(electronicProducts[11])">
-                <img src="../../assets/images/neckband.png" class="card-img">
+            <div class="airpods" (click)="selectProduct(46)">
+                <img src="../../assets/images/clothproduct10.jpg" class="card-img">
                 <div class="container cc">
-                    <h6><b>SoundPEATS</b></h6>
-                    <h6 class="price">&nbsp;Offer Price:₹10,806</h6>
-                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.2/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹16,806</s></h6>
+                    <h6><b>Zolario</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹449</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.6/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹799</s></h6>
                 </div>
             </div>
+            <div class="applewatch" (click)="selectProduct(47)">
+                <img src="../../assets/images/clothproduct11.jpg" class="card-img">
+                <div class="container cc">
+                    <h6><b>Zakar</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹1,766</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>3.7/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹3,599</s></h6>
+                </div>
+            </div>
+            <div class="neckband" (click)="selectProduct(48)">
+                <img src="../../assets/images/clothproduct12.webp" class="card-img">
+                <div class="container cc">
+                    <h6><b>Uniq</b></h6>
+                    <h6 class="price">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Offer Price:₹350</h6>
+                    <h6 class="rating"><i class="fa fa-star" aria-hidden="true"></i>4.3/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MRP:<s>₹899</s></h6>
+                </div>
+            </div> -->
         </div>
     </div>
 </div>

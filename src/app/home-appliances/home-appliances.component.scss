@@ -95,16 +95,18 @@
     position: relative;
     top: 3%;
     left: 11%;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     cursor: pointer;
+    margin-right: 80px;
+    padding: 0px !important;
 }
 
-.poco img{
-    width: 100px;
-}
+// .poco img{
+//     width: 200px;
+// }
 
 .card-img{
-    width: 100%;
+    max-width: fit-content;
     height: 230px;
 }
 
@@ -112,12 +114,12 @@
     padding: 2px 16px;
     background-color: #ccc5c5;
     color: #383535;
-    height: 80px;
+    height: 107px;
     
 }
 
 .cc b{
-    font-size: larger;
+    font-size: small;
     float: left;
 }
 
@@ -130,13 +132,14 @@
     transition: 0.3s;
     width: 18%;
     position: relative;
-    bottom: 304px;
+    bottom: 308px;
     left: 75%;
     cursor: pointer;
 }
 
 .legion img{
     height: 233px;
+    width: 200px;
 }
 
 .fireboltt{
@@ -151,7 +154,7 @@
 
 .fireboltt img{
     height: 233px;
-    width: 150px;
+    width: 200px;
 }
 
 .Headphones{
@@ -166,11 +169,10 @@
 
 .Headphones img{
     height: 233px;
-    width: 200px;
 }
 
 .list{
-    height: 1100px;
+    height: 1250px;
 }
 
 .Echo{
@@ -199,7 +201,6 @@
 
 .Mac img{
     height: 233px;
-    width: 200px;
 }
 
 .iphone{
@@ -229,6 +230,7 @@
 
 .ps5 img{
     height: 233px;
+    width: 200px;
 }
 
 .xbox{
@@ -243,6 +245,7 @@
 
 .xbox img{
     height: 233px;
+    width: 200px;
 }
 
 .airpods{
@@ -257,6 +260,7 @@
 
 .airpods img{
     height: 233px;
+    width: 200px;
 }
 
 .applewatch{
@@ -271,6 +275,7 @@
 
 .applewatch img{
     height: 233px;
+    width: 200px;
 }
 
 .neckband{
@@ -285,6 +290,7 @@
 
 .neckband img{
     height: 233px;
+    width: 200px;
 }
 
 .logsout{
@@ -294,4 +300,27 @@
 
 .logsout:hover{
     color: black;
+}
+
+.offerp{
+    float: right;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ccc5c5;
+    color: #383535;
+    height: 107px;
+}
+
+.left-content {
+    flex: 1;
+    text-align: left;
+}
+
+.right-content {
+    flex: 1;
+    text-align: right;
 }

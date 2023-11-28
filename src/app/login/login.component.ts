@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
   check() {
     var userFound = false;
     if(this.username == '' && this.password == ''){
-      alert("Enter Username and Password");
+      this.openAlertDialogComponentComponent2();
     }
     else if(this.username == ''){
-      alert("Enter Username");
+      this.openAlertDialogComponentComponent3();
     }
     else if(this.password == ''){
-      alert("Enter Password");
+      this.openAlertDialogComponentComponent4();
     }
     else{
       // for (var user of this.userList) {
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/shop']);
             }
             else {
-              alert("Wrong password!");
+              this.openAlertDialogComponentComponent5();
             }
             userFound = true;
           }
@@ -97,19 +97,82 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  openAlertDialogComponentComponent2() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Enter Username and Password',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent3() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Enter Username',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent4() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Enter Password',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent5() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Wrong Password!',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent6() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Re-Enter Password',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent7() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'User Already Exists!',
+        buttonText: 'Okay'
+      }
+    });
+  }
+  openAlertDialogComponentComponent8() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: 'Passwords do not match!',
+        buttonText: 'Okay'
+      }
+    });
+  }
 
   add() {
     if(this.username == '' && this.password == ''){
-      alert("Enter Username and Password");
+      this.openAlertDialogComponentComponent2();
     }
     else if(this.username == ''){
-      alert("Enter Username");
+      this.openAlertDialogComponentComponent3();
     }
     else if(this.password == ''){
-      alert("Enter Password");
+      this.openAlertDialogComponentComponent4();
     }
     else if(this.password2 == ''){
-      alert("Re-enter Password");
+      this.openAlertDialogComponentComponent6();
     }
     else{
       if (this.password == this.password2) {
@@ -119,7 +182,7 @@ export class LoginComponent implements OnInit {
         const usernameExists = this.message.some((item: { username: string }) => item.username === this.username);
         console.log('The entered username in signup is:', usernameExists);
         if (usernameExists == true) {
-          alert("Username already exists!");
+          this.openAlertDialogComponentComponent7();
         }
         else {
           const newUser = { username: this.username, password: this.password };
@@ -127,7 +190,6 @@ export class LoginComponent implements OnInit {
             response =>{
               console.log(response);
               this.userService.setUsername(this.username);
-              alert("Successfully Signed Up, Redirecting to Shopkart")
               this.router.navigate(['/shop']);
             },
             (error) =>{
@@ -138,7 +200,7 @@ export class LoginComponent implements OnInit {
         }
       }
       else {
-        alert("Passwords do not match!");
+        this.openAlertDialogComponentComponent8();
       }
     }
   }

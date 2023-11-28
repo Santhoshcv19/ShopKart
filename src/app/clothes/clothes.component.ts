@@ -735,18 +735,31 @@ export class ClothesComponent implements OnInit {
   //     // Specs5: 'The installation and demo for this product are done free of cost as part of this purchase (valid only for Knock Down products). We will share the installation date at the time of order, according to which our service partner will visit your location.',
   //   },
   // ]
+  clothProducts: any[] = [];
   constructor(private router: Router, public dialog: MatDialog, private userService: UserService, private cookieService:CookieService, private apiService: ApiService) { }
 
+  loadClothProducts() {
+    const clothCategoryId = 4;
+    this.apiService.getcategoryProductDetails(clothCategoryId).subscribe(
+      (data) => {
+        console.log('Cloth Products:', data);
+        this.clothProducts = data as any[];
+      },
+      (error) => {
+        console.error('Error fetching cloth products:', error);
+      }
+    );
+  }
   
 
   selectProduct(product: any) {
     this.apiService.getProductDetails(product).subscribe(
-      (product)=>{
-        this.userService.setSelectedProduct(product);
+      (productData)=>{
+        this.userService.setSelectedProduct(productData);
+        this.router.navigate(['/shop/product']);
       }
     )
   }
-
   ngOnInit(): void {
     if(this.userService.isLoggedIn()){
       if(this.loggedInUsername){
@@ -759,6 +772,7 @@ export class ClothesComponent implements OnInit {
     if(!this.cookieService.check('username')){
       this.loginnav();
     }
+    this.loadClothProducts()
   }
   isloginav = true;
   isHelloVisible = false;

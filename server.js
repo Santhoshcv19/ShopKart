@@ -43,11 +43,6 @@ app.get('/api/message',(req,res)=>{
     client.query(`select * from "user_details"`,(err,result)=>{
         if(!err){
             res.json(result.rows);
-            // res.status(200).json({message: 'Login Successful'});
-            // console.log(username);
-            // else{
-            //     res.status(401).json({message: 'Invalid Username or password'});
-            // }
         }
         else{
             console.error(err);
@@ -62,7 +57,7 @@ app.get('/api/products',(req,res)=>{
     // });
     const { product_name, detail_of_product } = req.query;
 
-    client.query(`select detail_of_product from "product_details"`,(err,result)=>{
+    client.query(`select * from "product_details"`,(err,result)=>{
         if(!err){
             res.json(result.rows);
             // res.status(200).json({message: 'Login Successful'});
@@ -87,6 +82,19 @@ app.get('/api/products/:id', (req, res) => {
         } else {
             console.error("node ",err);
             res.status(500).json({ error: 'Database Error' });
+        }
+    });
+});
+
+app.get('/api/get-product/:categoryId', (req, res) => {
+    const { categoryId } = req.params;
+    client.query('SELECT * FROM "product_details" where category_id = $1', [categoryId], (err, result) => {
+        if (!err) {
+            res.json(result.rows);
+        } else {
+            console.error("node ",err);
+            console.err("Error executing query",err)
+            res.status(500).json({ error: 'Database Error', details: err.message, stack: err.stack });
         }
     });
 });
