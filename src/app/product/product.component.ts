@@ -2,7 +2,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AlertDialogComponentComponent } from '../alert-dialog-component/alert-dialog-component.component';
 
 @Component({
   selector: 'app-product',
@@ -13,16 +16,19 @@ import { CookieService } from 'ngx-cookie-service';
 export class ProductComponent implements OnInit {
   selectedProduct: any;
   loggedInUsername: string | null = null;
-  constructor(private userService: UserService, private router: Router, private cookieService:CookieService) { }
+  phone: string | null = null;
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog, private cookieService:CookieService) { }
 
   ngOnInit(): void {
     this.selectedProduct = this.userService.getSelectedProduct();
+    this.phone = this.userService.getPhone();
     this.loggedInUsername = this.userService.getUsername();
     if(this.userService.isLoggedIn()){
-      if(this.loggedInUsername){
+      if(this.loggedInUsername && this.phone){
         const expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         this.cookieService.set('username', this.loggedInUsername, expirationDate);
+        this.cookieService.set('phone', this.phone, expirationDate);
       }
     }
     console.log(this.cookieService.get('username'));
@@ -39,6 +45,17 @@ export class ProductComponent implements OnInit {
 
   loginnav(){
     this.isloginav = !this.isloginav;
+  }
+
+  openAlertDialogComponentComponent() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: `Username: ${this.cookieService.get('username')}`,
+        message2: `Contact: ${this.cookieService.get('phone')}`,
+        buttonText: 'Okay'
+      }
+    });
   }
 
   onSearchKeyDown(event: KeyboardEvent) {

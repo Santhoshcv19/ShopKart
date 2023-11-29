@@ -35,7 +35,7 @@
                 <li class="nav-item me-3 me-lg-0" *ngIf="isloginav">
                     <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-user" aria-hidden="true"></i></button>
                     <mat-menu #menu="matMenu" id="matMenu">
-                        <button mat-menu-item>Profile</button>
+                        <button mat-menu-item (click)="openAlertDialogComponentComponent()">Profile</button>
                         <button mat-menu-item>Orders</button>
                         <button mat-menu-item class="logsout" (click)="toggleloginform()">Logout</button>
                     </mat-menu>

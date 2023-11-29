@@ -70,7 +70,7 @@
                 <br>
                 <input class="infield" [type]="changetype?'password':'text'" id="password" name="password"
                     [(ngModel)]="password" required placeholder="Password">
-                <span class="eyeicon" (click)="viewpass()"><i
+                <span class="eyeicon3" (click)="viewpass()"><i
                         [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
                 <br>
                 <br>
@@ -78,6 +78,10 @@
                     [(ngModel)]="password2" required placeholder="Confirm Password">
                 <span class="eyeicon2" (click)="viewpass2()"><i
                         [ngClass]="visible2?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                <br>
+                <br>
+                <input class="infield" type="text" name="phone" [(ngModel)]="phone" id="phone"
+                    required placeholder="Phone Number:">
                 <br>
                 <br>
                 <button type="submit" class="btn btn-primary" (click)="add()">Signup</button>

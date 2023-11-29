@@ -9,6 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AlertDialogComponentComponent implements OnInit {
 
   message: string = 'An unspecified error has occurred';
+  message2: string = '';
   icon: string = '';
   buttonText = 'Ok';
 
@@ -16,6 +17,7 @@ export class AlertDialogComponentComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     private data: {
       message: string;
+      message2: string;
       icon: string;
       buttonText: string;
     },
@@ -23,6 +25,7 @@ export class AlertDialogComponentComponent implements OnInit {
   ) {
     if (data?.icon) this.icon = data.icon;
     if (data?.message) this.message = data.message;
+    if (data?.message2) this.message2 = data.message2;
     if (data?.buttonText) this.buttonText = data.buttonText;
   }
 

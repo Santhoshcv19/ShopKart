@@ -9,6 +9,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
   private username: string | null = null;
+  private phone: string | null = null;
   private Data: any[] = [];
 
   fetchdata(){
@@ -19,8 +20,16 @@ export class UserService {
     this.username = username;
   }
 
+  setPhone(phone: string): void {
+    this.phone = phone;
+  }
+
   getUsername(): string | null {
     return this.username;
+  }
+
+  getPhone(): string | null {
+    return this.phone;
   }
 
   isLoggedIn(): boolean {

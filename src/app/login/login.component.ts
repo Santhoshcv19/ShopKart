@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   password2: string = '';
+  phone: string = '';
 
   userList = [
       { username: 'santhosh', password: 'abcd' }
@@ -72,8 +73,11 @@ export class LoginComponent implements OnInit {
       for (var item of this.message) {
           if (this.username == item.username) {
             if (this.password == item.password) {
+              this.phone = item.phone;
               console.log(this.username);
+              console.log(this.phone)
               this.userService.setUsername(this.username);
+              this.userService.setPhone(this.phone);
               this.router.navigate(['/shop']);
             }
             else {
@@ -185,11 +189,14 @@ export class LoginComponent implements OnInit {
           this.openAlertDialogComponentComponent7();
         }
         else {
-          const newUser = { username: this.username, password: this.password };
+          const newUser = { username: this.username, password: this.password, phone: this.phone };
+          console.log(newUser)
           this.apiService.addNewUser(newUser).subscribe(
             response =>{
               console.log(response);
+              console.log(newUser)
               this.userService.setUsername(this.username);
+              this.userService.setPhone(this.phone);
               this.router.navigate(['/shop']);
             },
             (error) =>{

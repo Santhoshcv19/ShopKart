@@ -108,9 +108,9 @@ app.use(cors());
 
 app.post('/api/signup', (req,res)=>{
 
-    const { username, password } = req.body;
-    console.log('Received data:', username, password);
-    client.query('INSERT INTO user_details(username, password, is_delete) VALUES ($1, $2, 0)', [username, password], (err,result) =>{
+    const { username, password, phone } = req.body;
+    console.log('Received data:', username, password, phone);
+    client.query('INSERT INTO user_details(username, password, is_delete, phone) VALUES ($1, $2, 0, $3)', [username, password, phone], (err,result) =>{
         if(!err){
             res.status(200).json({ message: 'Signup successful' });
         } else{

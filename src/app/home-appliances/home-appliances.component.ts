@@ -5,6 +5,7 @@ import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/co
 import { UserService } from '../user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
+import { AlertDialogComponentComponent } from '../alert-dialog-component/alert-dialog-component.component';
 
 @Component({
   selector: 'app-home-appliances',
@@ -763,10 +764,11 @@ export class HomeAppliancesComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userService.isLoggedIn()){
-      if(this.loggedInUsername){
+      if(this.loggedInUsername && this.phone){
         const expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         this.cookieService.set('username', this.loggedInUsername, expirationDate);
+        this.cookieService.set('phone', this.phone, expirationDate);
       }
     }
     console.log(this.cookieService.get('username'));
@@ -779,6 +781,7 @@ export class HomeAppliancesComponent implements OnInit {
   isHelloVisible = false;
   ispop = false;
   loggedInUsername: string | null = null;
+  phone: string | null = null;
 
   toggleHello() {
     this.isHelloVisible = !this.isHelloVisible;
@@ -786,6 +789,17 @@ export class HomeAppliancesComponent implements OnInit {
 
   loginnav(){
     this.isloginav = !this.isloginav;
+  }
+
+  openAlertDialogComponentComponent() {
+    this.dialog.open(AlertDialogComponentComponent, {
+      data: {
+        icon: 'Error',
+        message: `Username: ${this.cookieService.get('username')}`,
+        message2: `Contact: ${this.cookieService.get('phone')}`,
+        buttonText: 'Okay'
+      }
+    });
   }
 
   onSearchKeyDown(event: KeyboardEvent) {
