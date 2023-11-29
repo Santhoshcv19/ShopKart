@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogModel, ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AlertDialogComponentComponent } from '../alert-dialog-component/alert-dialog-component.component';
+import { ProfilePopupComponent } from '../profile-popup/profile-popup.component';
 
 @Component({
   selector: 'app-product',
@@ -48,9 +49,9 @@ export class ProductComponent implements OnInit {
   }
 
   openAlertDialogComponentComponent() {
-    this.dialog.open(AlertDialogComponentComponent, {
+    this.dialog.open(ProfilePopupComponent, {
       data: {
-        icon: 'Error',
+        icon: 'close',
         message: `Username: ${this.cookieService.get('username')}`,
         message2: `Contact: ${this.cookieService.get('phone')}`,
         buttonText: 'Okay'

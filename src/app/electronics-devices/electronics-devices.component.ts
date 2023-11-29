@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 import { AlertDialogComponentComponent } from '../alert-dialog-component/alert-dialog-component.component';
+import { ProfilePopupComponent } from '../profile-popup/profile-popup.component';
 
 @Component({
   selector: 'app-electronics-devices',
@@ -584,9 +585,9 @@ export class ElectronicsDevicesComponent implements OnInit {
   }
 
   openAlertDialogComponentComponent() {
-    this.dialog.open(AlertDialogComponentComponent, {
+    this.dialog.open(ProfilePopupComponent, {
       data: {
-        icon: 'Error',
+        icon: 'close',
         message: `Username: ${this.cookieService.get('username')}`,
         message2: `Contact: ${this.cookieService.get('phone')}`,
         buttonText: 'Okay'

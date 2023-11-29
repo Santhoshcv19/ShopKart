@@ -21,7 +21,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertDialogComponentComponent } from './alert-dialog-component/alert-dialog-component.component';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { ProfilePopupComponent } from './profile-popup/profile-popup.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon'
     ClothesComponent,
     ProductComponent,
     AlertDialogComponentComponent,
+    ProfilePopupComponent,
   ],
   imports: [
     BrowserModule,
