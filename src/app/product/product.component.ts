@@ -18,6 +18,7 @@ export class ProductComponent implements OnInit {
   selectedProduct: any;
   loggedInUsername: string | null = null;
   phone: string | null = null;
+  email: string | null = null;
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog, private cookieService:CookieService) { }
 
   ngOnInit(): void {
@@ -25,11 +26,12 @@ export class ProductComponent implements OnInit {
     this.phone = this.userService.getPhone();
     this.loggedInUsername = this.userService.getUsername();
     if(this.userService.isLoggedIn()){
-      if(this.loggedInUsername && this.phone){
+      if(this.loggedInUsername && this.phone && this.email){
         const expirationDate = new Date();
         expirationDate.setFullYear(expirationDate.getFullYear() + 1);
         this.cookieService.set('username', this.loggedInUsername, expirationDate);
         this.cookieService.set('phone', this.phone, expirationDate);
+        this.cookieService.set('email', this.email, expirationDate);
       }
     }
     console.log(this.cookieService.get('username'));
@@ -52,10 +54,13 @@ export class ProductComponent implements OnInit {
     this.dialog.open(ProfilePopupComponent, {
       data: {
         icon: 'close',
-        message: `Username: ${this.cookieService.get('username')}`,
-        message2: `Contact: ${this.cookieService.get('phone')}`,
-        buttonText: 'Okay'
-      }
+        message: `${this.cookieService.get('username')}`,
+        message2: `${this.cookieService.get('phone')}`,
+        icon1: 'contacts',
+        icon2: 'mail',
+        message3: `${this.cookieService.get('email')}`,
+      },
+      panelClass: 'my-custom-dialog-class',
     });
   }
 

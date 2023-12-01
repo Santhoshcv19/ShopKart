@@ -1,16 +1,17 @@
-<mat-dialog-content style="height: 300px; width: 400px;">
+<mat-dialog-content style="height: 325px; width: 530px; background-color: #1b712f;">
     <!-- <mat-icon *ngIf="icon" style="margin-left: 42%; size: 300px;">{{icon | lowercase}}</mat-icon> -->
     <div>
         <img src="../../assets/images/profiles.webp" class="profile">
     </div>
+    <h3 style="text-align: center;">{{message}}</h3>
     <br>
     <br>
+    <h4><mat-icon *ngIf="icon1" class="mail">{{icon1}}</mat-icon>&nbsp;&nbsp;&nbsp;{{message2}}</h4>
     <br>
-    <h3>{{message}}</h3>
     <br>
-    <h3>{{message2}}</h3>
+    <h4><mat-icon *ngIf="icon2" class="mail">{{icon2}}</mat-icon>&nbsp;&nbsp;&nbsp;{{message3}}</h4>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="end" style=" background-color: #1b712f;">
     <button mat-dialog-close class="close">
         <mat-icon *ngIf="icon" style="margin-left: 42%; size: 300px;">{{icon | lowercase}}</mat-icon>
     </button>

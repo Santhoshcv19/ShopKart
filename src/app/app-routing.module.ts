@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Scroll } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
 import { ElectronicsDevicesComponent } from './electronics-devices/electronics-devices.component';
@@ -45,7 +45,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 64], 
+    onSameUrlNavigation: 'reload',
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

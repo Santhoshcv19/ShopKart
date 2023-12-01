@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   password2: string = '';
   phone: string = '';
+  email: string = '';
 
   userList = [
       { username: 'santhosh', password: 'abcd' }
@@ -74,10 +75,12 @@ export class LoginComponent implements OnInit {
           if (this.username == item.username) {
             if (this.password == item.password) {
               this.phone = item.phone;
+              this.email = item.email
               console.log(this.username);
               console.log(this.phone)
               this.userService.setUsername(this.username);
               this.userService.setPhone(this.phone);
+              this.userService.setEmail(this.email);
               this.router.navigate(['/shop']);
             }
             else {
@@ -189,14 +192,14 @@ export class LoginComponent implements OnInit {
           this.openAlertDialogComponentComponent7();
         }
         else {
-          const newUser = { username: this.username, password: this.password, phone: this.phone };
-          console.log(newUser)
+          const newUser = { username: this.username, password: this.password, phone: this.phone, email: this.email };
           this.apiService.addNewUser(newUser).subscribe(
             response =>{
               console.log(response);
-              console.log(newUser)
+              console.log("New user is: ", newUser)
               this.userService.setUsername(this.username);
               this.userService.setPhone(this.phone);
+              this.userService.setEmail(this.email);
               this.router.navigate(['/shop']);
             },
             (error) =>{

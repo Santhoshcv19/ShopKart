@@ -2,14 +2,33 @@
     justify-content: center !important;
 }
 
+.mat-dialog-container{
+    background-color: #1b712f !important;
+}
+
 .profile{
     width: 100px;
     height: 100px;
-    margin-left: 35%;
+    margin-left: 39%;
 }
 
 .close{
     position: relative;
-    bottom: 337px;
-    margin-left: 331px;
+    bottom: 357px;
+    margin-left: 451px;
+}
+
+body{
+    background-color: #1b712f;
+}
+
+::ng-deep .my-custom-dialog-class {
+    mat-dialog-container {
+        background-color: #1b712f;
+    }
+}
+
+.mail{
+    position: relative !important;
+    top: 5px !important;
 }
