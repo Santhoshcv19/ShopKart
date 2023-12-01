@@ -3,7 +3,7 @@
 }
 
 .mat-dialog-container{
-    background-color: #1b712f !important;
+    background-color: white !important;
 }
 
 .profile{
@@ -14,18 +14,20 @@
 
 .close{
     position: relative;
-    bottom: 357px;
-    margin-left: 451px;
+    bottom: 368px;
+    margin-left: 354px;
 }
 
 body{
-    background-color: #1b712f;
+    background-color: white;
 }
 
 ::ng-deep .my-custom-dialog-class {
     mat-dialog-container {
-        background-color: #1b712f;
+        background-color: white;
     }
+    max-width: 25vw;
+    position: static;
 }
 
 .mail{
