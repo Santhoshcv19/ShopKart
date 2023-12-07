@@ -9,7 +9,7 @@
 .profile{
     width: 100px;
     height: 100px;
-    margin-left: 39%;
+    margin-left: 35%;
 }
 
 .close{
@@ -33,4 +33,8 @@ body{
 .mail{
     position: relative !important;
     top: 5px !important;
+}
+
+.edit{
+    cursor: pointer;
 }

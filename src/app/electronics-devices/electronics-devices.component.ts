@@ -595,6 +595,7 @@ export class ElectronicsDevicesComponent implements OnInit {
         icon1: 'contacts',
         icon2: 'mail',
         message3: `${this.cookieService.get('email')}`,
+        icon4: 'edit',
       },
       panelClass: 'my-custom-dialog-class',
     });

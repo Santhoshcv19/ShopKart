@@ -21,4 +21,8 @@ export class ApiService {
     getcategoryProductDetails(categoryId: number) {
         return this.http.get(`http://localhost:3000/api/get-product/${categoryId}`);
     }
+    changeuserdetails(userid: number, email: any, phone: any){
+        const requestBody = { email: email.message3e, phone: phone.message2e };
+        return this.http.put(`http://localhost:3000/api/update-user-email/${userid}`, requestBody);
+    }
 }

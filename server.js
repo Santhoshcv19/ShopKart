@@ -119,3 +119,22 @@ app.post('/api/signup', (req,res)=>{
         }
     });
 });
+
+app.put('/api/update-user-email/:userId', (req, res) => {
+    const { userId } = req.params;
+    const { email } = req.body;
+    const { phone } = req.body;
+    console.log("The mail and userid and phone are:", userId, email, phone)
+    client.query('UPDATE "user_details" SET email = $1, phone = $3 WHERE id = $2', [email, userId, phone], (err, result) => {
+        if (!err) {
+            if (result.rowCount === 1) {
+                res.json({ message: 'Email updated successfully' });
+            } else {
+                res.status(404).json({ error: 'User not found' });
+            }
+        } else {
+            console.error("Error executing query", err);    
+            res.status(500).json({ error: 'Database Error', details: err.message, stack: err.stack });
+        }
+    });
+});
